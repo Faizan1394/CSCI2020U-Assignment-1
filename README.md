@@ -1,6 +1,4 @@
 # Assignment-1
-===============
 
-##Authors
----------
+#####Authors
 Miral Panchal - 100569725
