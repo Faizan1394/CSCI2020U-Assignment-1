@@ -9,13 +9,30 @@ import java.util.*;
 
 public class WordCounter {
 
+    //#of files
+    private int numHam;
+    private int numSpam;
+
     // maps to hold the ham and spam word frequency
     private Map<String,Integer> trainHamFreq;
     private Map<String,Integer> trainSpamFreq;
 
+    // map to hold the probabilities
+    private Map<String,Float> probabilityFileisSpam;
+    private Map<String,Float> probabilitywordInSpam;
+    private Map<String,Float> probabilitywordInHam;
+
+
+
     public WordCounter() {
         trainHamFreq = new TreeMap<>();
         trainSpamFreq = new TreeMap<>();
+        probabilityFileisSpam = new TreeMap<>();
+        probabilitywordInSpam = new TreeMap<>();
+        probabilitywordInHam = new TreeMap<>();
+
+        numHam = 0;
+        numSpam = 0;
     }
 
 
@@ -36,6 +53,8 @@ public class WordCounter {
         } else {
             // if the current file is in the training ham folder
             if(file.getAbsolutePath().contains("train/ham")) {
+
+                numHam++;
                 // read the fil word by word
                 Scanner scanner = new Scanner(file);
                 while (scanner.hasNext()) {
@@ -47,6 +66,9 @@ public class WordCounter {
                 }
              // if the current file is in the training spam folder
             }else if(file.getAbsolutePath().contains("train/spam")) {
+
+                numSpam++;
+
                 Scanner scanner = new Scanner(file);
                 while (scanner.hasNext()) {
                     String word = scanner.next();
@@ -92,15 +114,70 @@ public class WordCounter {
         }
     }
 
+    /**
+     * Calculate the probability the word is in the spam file, ham file and the probability that a file is spam given
+     * that it contains a certain word.  Save the probabilities into corresponding maps
+     */
+    public void calculateProbability(){
+
+        // calculate and save the probability that a word in the trainHamFreq map appears in a ham file into
+        // the probabilitywordInHam map
+        Set<String> keys = trainHamFreq.keySet();
+        Iterator<String> keyIterator = keys.iterator();
+        while (keyIterator.hasNext()) {
+            String key = keyIterator.next();
+            int count = trainHamFreq.get(key);
+            probabilitywordInHam.put(key,(float)count/numHam);
+        }
+
+        // calculate and save the probability that a word in the trainHamSpam map appears in a spam file into
+        // the probabilitywordInSpam map
+        keys = trainSpamFreq.keySet();
+        keyIterator = keys.iterator();
+        while (keyIterator.hasNext()) {
+            String key = keyIterator.next();
+            int count = trainSpamFreq.get(key);
+            probabilitywordInSpam.put(key,(float)count/numSpam);
+        }
+
+
+        // calculate and save the probability that a file is spam given that it contains a word in a spam file
+        keys = probabilitywordInSpam.keySet();
+        keyIterator = keys.iterator();
+        while (keyIterator.hasNext()) {
+            String key = keyIterator.next();
+            if(probabilitywordInHam.containsKey(key))
+                probabilityFileisSpam.put(key,probabilitywordInSpam.get(key)/(probabilitywordInSpam.get(key) + probabilitywordInHam.get(key)));
+            else
+                probabilityFileisSpam.put(key,1.0f);
+        }
+
+
+    }
 
     /**
      * Prints out all the words and number of times they were seen in the Frequency maps
      */
     public void printWordCounts(){
 
-        System.out.println(trainHamFreq);
-        System.out.println(trainSpamFreq);
+//        System.out.println("Number of ham files: " + numHam);
+//        System.out.println(trainHamFreq);
+//        System.out.println(probabilitywordInHam);
+//
+//        System.out.println("Number of spam files: " +numSpam);
+//        System.out.println(trainSpamFreq);
+//        System.out.println(probabilitywordInSpam);
 
+
+        // print all the words and probability in the map probabilityFileisSpam (Pr(𝑆|𝑊𝑖)) line by line
+        Set<String> keys = probabilityFileisSpam.keySet();
+        Iterator<String> keyIterator = keys.iterator();
+        while (keyIterator.hasNext()) {
+            String key = keyIterator.next();
+            Float count = probabilityFileisSpam.get(key);
+
+            System.out.println(key + " " + count);
+        }
     }
 
 
