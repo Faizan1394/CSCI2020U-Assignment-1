@@ -1,4 +1,4 @@
-package sample;
+package Project;
 
 /**
  * Created by miral on 18/02/17.
@@ -9,9 +9,7 @@ public class TestFile {
     private double spamProbability;
     private String actualClass;
 
-    public TestFile(String filename,
-                    double spamProbability,
-                    String actualClass) {
+    public TestFile(String filename, double spamProbability, String actualClass) {
         this.filename = filename;
         this.spamProbability = spamProbability;
         this.actualClass = actualClass;
@@ -19,6 +17,7 @@ public class TestFile {
 
     public String getFilename() { return this.filename; }
     public double getSpamProbability() { return this.spamProbability; }
+
     public String getSpamProbRounded() {
         DecimalFormat df = new DecimalFormat("0.00000");
         return df.format(this.spamProbability);

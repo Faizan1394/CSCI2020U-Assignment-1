@@ -1,4 +1,4 @@
-package sample;
+package Project;
 
 import java.io.*;
 import java.util.*;
@@ -103,7 +103,7 @@ public class WordCounter {
     /**
      *  check to see if the word is a word
      * @param token The word you want to check
-     * @return
+     * @return boolean true/false
      */
     private boolean isWord(String token) {
         String pattern = "^[a-zA-Z]*$";
