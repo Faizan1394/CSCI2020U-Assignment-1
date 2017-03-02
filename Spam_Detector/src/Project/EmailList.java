@@ -20,31 +20,23 @@ public class EmailList {
 
     public static ObservableList<TestFile> getEmail(File file) throws IOException{
         ObservableList<TestFile> emails = FXCollections.observableArrayList();
-        //if the file is a directory
-        if (file.isDirectory()) {
-            // for directories, recursively call
-            File[] filesInDir = file.listFiles();
-            for (int i = 0; i < filesInDir.length; i++) {
-                getEmail(filesInDir[i]);
-            }
-        } else {
-            // if the current file is in the training ham folder
-            if(file.getAbsolutePath().contains("test/ham")) {
-                for(int i = 0; i < file.length();i++) {
-                    emails.add(new TestFile(file.getName(),0.00, "Ham"));
+
+        File [] filesInDir = file.listFiles();
+        for (int i = 0; i < filesInDir.length; i++) {
+            System.out.println(filesInDir[i]);
+            if(filesInDir[i].isDirectory()) {
+                for (int j = 0; j < filesInDir.length; j++) {
+                    getEmail(filesInDir[j]);
                 }
             }
 
-            // if the current file is in the training spam folder
-            else if(file.getAbsolutePath().contains("test/spam")) {
-                for(int i = 0; i < file.length();i++) {
-                    emails.add(new TestFile(file.getName(),0.00, "Spam"));
-                }
+            else if (filesInDir[i].getAbsolutePath().contains("test/ham")) {
+                emails.add(new TestFile(filesInDir[i].getName(),0.00, "Ham"));
             }
-
-
+            else if (filesInDir[i].getAbsolutePath().contains("test/spam")){
+                emails.add(new TestFile(filesInDir[i].getName(),0.00, "Spam"));
+            }
         }
-
         return emails;
     }
 }

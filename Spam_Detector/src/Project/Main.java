@@ -27,6 +27,7 @@ public class Main extends Application {
         directoryChooser.setInitialDirectory(new File("."));
         File mainDirectory = directoryChooser.showDialog(primaryStage);
 
+        /*
 
         // make an instance of the WordCounter class
         WordCounter word = new WordCounter();
@@ -35,8 +36,9 @@ public class Main extends Application {
         word.calculateProbability();
 
         //print out the word counts in console
-        word.printWordCounts();
+        //word.printWordCounts();
 
+        */
 
         ObservableList emails = EmailList.getEmail(mainDirectory);
         table.setItems(emails);

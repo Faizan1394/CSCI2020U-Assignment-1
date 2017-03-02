@@ -53,7 +53,6 @@ public class WordCounter {
         } else {
             // if the current file is in the training ham folder
             if(file.getAbsolutePath().contains("train/ham")) {
-
                 numHam++;
                 // read the fil word by word
                 Scanner scanner = new Scanner(file);
