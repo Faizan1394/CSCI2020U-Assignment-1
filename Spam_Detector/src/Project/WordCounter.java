@@ -91,6 +91,7 @@ public class WordCounter {
                     if (isWord(word)) {
                         // add the current word to the trainSpamFreq map
                         countWord(word,testHamFreq);
+                        System.out.println(file.getName());
                         EmailList.setEmail(file.getName(),0.0,"Ham");
                     }
                 }
