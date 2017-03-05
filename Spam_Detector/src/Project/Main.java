@@ -1,11 +1,8 @@
 package Project;
 
 import javafx.application.Application;
-import javafx.collections.ObservableList;
 import javafx.fxml.*;
 import javafx.scene.*;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
@@ -13,10 +10,6 @@ import java.io.File;
 
 public class Main extends Application {
 
-    @FXML private TableView<TestFile> table;
-    @FXML private TableColumn<TestFile,String> file_column;
-    @FXML private TableColumn<TestFile, String> actual_class;
-    @FXML private TableColumn<TestFile, String> spam_prob;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -33,18 +26,6 @@ public class Main extends Application {
         // call the processFile function in WordCounter class and send it the file containing all the data
         word.processFile(mainDirectory);
         word.calculateProbability();
-
-
-        try {
-            ObservableList emails = EmailList.getEmails();
-            System.out.print(emails.isEmpty());
-            file_column.setCellValueFactory(new PropertyValueFactory<TestFile, String>("Filename"));
-            actual_class.setCellValueFactory(new PropertyValueFactory<TestFile, String>("ActualClass"));
-            spam_prob.setCellValueFactory(new PropertyValueFactory<TestFile, String>("SpamProbRounded"));
-            table.setItems(emails);
-        }
-        catch (Exception e) { e.printStackTrace(); }
-
 
         primaryStage.setScene(new Scene(root, 750, 650));
         primaryStage.setResizable(false);
