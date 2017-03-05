@@ -2,13 +2,10 @@ package Project;
 
 import javafx.application.Application;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.fxml.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
@@ -28,23 +25,24 @@ public class Main extends Application {
         File mainDirectory = directoryChooser.showDialog(primaryStage);
 
         /*
-
         // make an instance of the WordCounter class
         WordCounter word = new WordCounter();
         // call the processFile function in WordCounter class and send it the file containing all the data
         word.processFile(mainDirectory);
         word.calculateProbability();
-
-        //print out the word counts in console
-        //word.printWordCounts();
-
         */
 
-        ObservableList emails = EmailList.getEmail(mainDirectory);
-        table.setItems(emails);
-        table.getColumns().addAll(file_column,spam_prob,actual_class);
+        try {
+            ObservableList emails = EmailList.getEmails();
+            table.setItems(emails);
+        }
+        catch (Exception e) { e.printStackTrace(); }
 
-
+        /*
+        file_column.setCellValueFactory(new PropertyValueFactory<TestFile, String>("Filename"));
+        spam_prob.setCellValueFactory(new PropertyValueFactory<TestFile, String>("SpamProbRounded"));
+        actual_class.setCellValueFactory(new PropertyValueFactory<TestFile, String>("ActualClass"));
+        */
 
         primaryStage.setScene(new Scene(root, 750, 650));
         primaryStage.setResizable(false);

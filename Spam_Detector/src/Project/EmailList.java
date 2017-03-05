@@ -2,7 +2,9 @@ package Project;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TableView;
 
+import javax.swing.text.TabableView;
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
@@ -13,30 +15,11 @@ import java.util.Scanner;
  */
 public class EmailList {
 
+    private static ObservableList<TestFile> emails = FXCollections.observableArrayList();
 
-    // maps to hold the ham and spam word frequency
-    private Map<String,Integer> testingHamFreq;
-    private Map<String,Integer> testingSpamFreq;
-
-    public static ObservableList<TestFile> getEmail(File file) throws IOException{
-        ObservableList<TestFile> emails = FXCollections.observableArrayList();
-
-        File [] filesInDir = file.listFiles();
-        for (int i = 0; i < filesInDir.length; i++) {
-            System.out.println(filesInDir[i]);
-            if(filesInDir[i].isDirectory()) {
-                for (int j = 0; j < filesInDir.length; j++) {
-                    getEmail(filesInDir[j]);
-                }
-            }
-
-            else if (filesInDir[i].getAbsolutePath().contains("test/ham")) {
-                emails.add(new TestFile(filesInDir[i].getName(),0.00, "Ham"));
-            }
-            else if (filesInDir[i].getAbsolutePath().contains("test/spam")){
-                emails.add(new TestFile(filesInDir[i].getName(),0.00, "Spam"));
-            }
-        }
-        return emails;
+    public static void setEmail(String file_name, double spam_prob, String actual_class) throws IOException{
+        emails.add(new TestFile(file_name,spam_prob,actual_class));
     }
+
+    public static ObservableList getEmails(){ return emails; }
 }

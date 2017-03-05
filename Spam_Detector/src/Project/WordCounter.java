@@ -13,9 +13,14 @@ public class WordCounter {
     private int numHam;
     private int numSpam;
 
-    // maps to hold the ham and spam word frequency
+    // maps to hold the ham and spam word frequency when training
     private Map<String,Integer> trainHamFreq;
     private Map<String,Integer> trainSpamFreq;
+
+
+    // maps to hold the ham and spam word frequency when testing
+    private Map<String,Integer> testHamFreq;
+    private Map<String,Integer> testSpamFreq;
 
     // map to hold the probabilities
     private Map<String,Float> probabilityFileisSpam;
@@ -27,6 +32,10 @@ public class WordCounter {
     public WordCounter() {
         trainHamFreq = new TreeMap<>();
         trainSpamFreq = new TreeMap<>();
+
+        testHamFreq = new TreeMap<>();
+        testSpamFreq = new TreeMap<>();
+
         probabilityFileisSpam = new TreeMap<>();
         probabilitywordInSpam = new TreeMap<>();
         probabilitywordInHam = new TreeMap<>();
@@ -50,12 +59,13 @@ public class WordCounter {
             for (int i = 0; i < filesInDir.length; i++) {
                 processFile(filesInDir[i]);
             }
-        } else {
+        }
+        else {
+            Scanner scanner = new Scanner(file);
             // if the current file is in the training ham folder
             if(file.getAbsolutePath().contains("train/ham")) {
                 numHam++;
                 // read the fil word by word
-                Scanner scanner = new Scanner(file);
                 while (scanner.hasNext()) {
                     String word = scanner.next();
                     if (isWord(word)) {
@@ -64,11 +74,9 @@ public class WordCounter {
                     }
                 }
              // if the current file is in the training spam folder
-            }else if(file.getAbsolutePath().contains("train/spam")) {
-
+            }
+            else if(file.getAbsolutePath().contains("train/spam")) {
                 numSpam++;
-
-                Scanner scanner = new Scanner(file);
                 while (scanner.hasNext()) {
                     String word = scanner.next();
                     if (isWord(word)) {
@@ -77,8 +85,26 @@ public class WordCounter {
                     }
                 }
             }
-
-
+            else if(file.getAbsolutePath().contains("test/ham")) {
+                while (scanner.hasNext()) {
+                    String word = scanner.next();
+                    if (isWord(word)) {
+                        // add the current word to the trainSpamFreq map
+                        countWord(word,testHamFreq);
+                        EmailList.setEmail(file.getName(),0.0,"Ham");
+                    }
+                }
+            }
+            else if (file.getAbsolutePath().contains("test/spam")) {
+                while (scanner.hasNext()) {
+                    String word = scanner.next();
+                    if (isWord(word)) {
+                        // add the current word to the trainSpamFreq map
+                        countWord(word,testSpamFreq);
+                        EmailList.setEmail(file.getName(),0.0,"Spam");
+                    }
+                }
+            }
         }
     }
 
