@@ -18,7 +18,7 @@ public class EmailList {
     private static ObservableList<TestFile> emails = FXCollections.observableArrayList();
 
     public static void setEmail(String file_name, double spam_prob, String actual_class) {
-        emails.addAll(new TestFile(file_name,spam_prob,actual_class));
+        emails.add(new TestFile(file_name,spam_prob,actual_class));
     }
 
     public static ObservableList getEmails(){return emails;}
