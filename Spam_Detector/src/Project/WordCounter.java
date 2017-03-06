@@ -86,25 +86,26 @@ public class WordCounter {
                 }
             }
             else if(file.getAbsolutePath().contains("test/ham")) {
+                double probWordSpam = 0;
                 while (scanner.hasNext()) {
                     String word = scanner.next();
-                    if (isWord(word)) {
-                        // add the current word to the trainSpamFreq map
-                        countWord(word,testHamFreq);
-                        System.out.println(file.getName());
-                        EmailList.setEmail(file.getName(),0.0,"Ham");
+                    if (isWord(word) && probabilityFileisSpam.containsKey(word)) {
+                        probWordSpam += calculateSpamProbability(word);
                     }
                 }
+                double fileIsSpam = 1/(1+(Math.pow(Math.E,probWordSpam)));
+                EmailList.setEmail(file.getName(),fileIsSpam,"Ham");
             }
             else if (file.getAbsolutePath().contains("test/spam")) {
+                double probWordSpam = 0;
                 while (scanner.hasNext()) {
                     String word = scanner.next();
-                    if (isWord(word)) {
-                        // add the current word to the trainSpamFreq map
-                        countWord(word,testSpamFreq);
-                        EmailList.setEmail(file.getName(),0.0,"Spam");
+                    if (isWord(word) && probabilityFileisSpam.containsKey(word)) {
+                        probWordSpam += calculateSpamProbability(word);
                     }
                 }
+                double fileIsSpam = 1/(1+(Math.pow(Math.E,probWordSpam)));
+                EmailList.setEmail(file.getName(),fileIsSpam,"Spam");
             }
         }
     }
@@ -179,6 +180,11 @@ public class WordCounter {
         }
 
 
+    }
+
+    public double calculateSpamProbability(String word) {
+        double trainSpamProb = probabilityFileisSpam.get(word);
+        return Math.log(1-trainSpamProb) - Math.log(trainSpamProb);
     }
 
     /**

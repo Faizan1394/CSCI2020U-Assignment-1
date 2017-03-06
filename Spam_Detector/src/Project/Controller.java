@@ -24,10 +24,11 @@ public class Controller implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
 
         ObservableList emails = EmailList.getEmails();
-        System.out.print(emails.isEmpty());
+
         file_column.setCellValueFactory(new PropertyValueFactory<TestFile, String>("Filename"));
         actual_class.setCellValueFactory(new PropertyValueFactory<TestFile, String>("ActualClass"));
         spam_prob.setCellValueFactory(new PropertyValueFactory<TestFile, String>("SpamProbRounded"));
+
         table.setItems(emails);
     }
 }
