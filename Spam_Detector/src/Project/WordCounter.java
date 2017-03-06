@@ -70,7 +70,7 @@ public class WordCounter {
                 numHam++;
                 // read the fil word by word
                 while (scanner.hasNext()) {
-                    String word = scanner.next();
+                    String word = scanner.next().toLowerCase();
                     if (isWord(word)) {
                         // add the current word to the trainHapFreq map
                         countWord(word,trainHamFreq);
@@ -81,7 +81,7 @@ public class WordCounter {
             else if(file.getAbsolutePath().contains("train/spam")) {
                 numSpam++;
                 while (scanner.hasNext()) {
-                    String word = scanner.next();
+                    String word = scanner.next().toLowerCase();
                     if (isWord(word)) {
                         // add the current word to the trainSpamFreq map
                         countWord(word,trainSpamFreq);
@@ -99,7 +99,7 @@ public class WordCounter {
                         probWordSpam += calculateSpamProbability(word);
                     }
                 }
-                double fileIsSpam = 1/(1+((double)Math.pow(Math.E,probWordSpam)));
+                double fileIsSpam = 1/(1+(Math.pow(Math.E,probWordSpam)));
                 testHamProb.put(file.getName(),fileIsSpam);
                 EmailList.setEmail(file.getName(),fileIsSpam,"Ham");
             }

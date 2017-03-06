@@ -26,7 +26,7 @@ public class Main extends Application {
         // call the processFile function in WordCounter class and send it the file containing all the data
         word.processFile(mainDirectory);
         //word.calculateProbability();
-        //word.printWordCounts();
+        word.printWordCounts();
         word.calculateAccuracy();
 
         primaryStage.setScene(new Scene(root, 750, 650));
