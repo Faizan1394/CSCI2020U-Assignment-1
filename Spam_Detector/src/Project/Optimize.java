@@ -18,14 +18,11 @@ public class Optimize {
      * @return the updated map
      */
     public Map<String,Integer> optFreqMap(Map<String,Integer> map, int lessThen){
-        System.out.println("opts");
         Set<String> keys = map.keySet();
         Iterator<String> keyIterator = keys.iterator();
         while (keyIterator.hasNext()) {
             String key = keyIterator.next();
-            System.out.println(key+" "+ map.get(key));
             if(map.get(key) < lessThen) {
-                System.out.println(key);
                 keyIterator.remove();
             }
         }

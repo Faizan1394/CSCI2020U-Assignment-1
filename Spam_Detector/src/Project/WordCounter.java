@@ -36,7 +36,6 @@ public class WordCounter {
     private boolean calculated = false;
 
     public WordCounter() {
-        optimize = new Optimize();
         trainHamFreq = new TreeMap<>();
         trainSpamFreq = new TreeMap<>();
 
@@ -59,8 +58,12 @@ public class WordCounter {
             for (int i = 0; i < filesInDir.length; i++) {
                 traverseDirectory(filesInDir[i]);
             }
-        }else{
-            processFileTrain(file);
+        }
+        else {
+            if(file.getAbsolutePath().contains("train"))
+                processFileTrain(file);
+            else
+                processFileTest(file);
         }
     }
 
@@ -94,7 +97,11 @@ public class WordCounter {
                     countWord(word,trainSpamFreq);
                 }
             }
-        }else if(file.getAbsolutePath().contains("test/ham")) {
+        }
+    }
+
+    public void processFileTest(File file) throws IOException {
+        Scanner scanner = new Scanner(file);
             numTestHam++;
             double probWordSpam = 0;
             while (scanner.hasNext()) {
@@ -106,20 +113,13 @@ public class WordCounter {
             double fileIsSpam = 1/(1+(Math.pow(Math.E,probWordSpam)));
             testHamProb.put(file.getName(),fileIsSpam);
             EmailList.setEmail(file.getName(),fileIsSpam,"Ham");
-        }
-        else if (file.getAbsolutePath().contains("test/spam")) {
-            numTestSpam++;
-            double probWordSpam = 0;
-            while (scanner.hasNext()) {
-                String word = scanner.next();
-                if (isWord(word) && probabilityFileisSpam.containsKey(word)) {
-                    probWordSpam += calculateSpamProbability(word);
-                }
-            }
-            double fileIsSpam = 1/(1+(Math.pow(Math.E,probWordSpam)));
-            testSpamProb.put(file.getName(),fileIsSpam);
-            EmailList.setEmail(file.getName(),fileIsSpam,"Spam");
-        }
+            EmailList.setEmail(file.getName(),fileIsSpam,"Ham");
+
+            if(file.getAbsolutePath().contains("ham"))
+                EmailList.setEmail(file.getName(),fileIsSpam,"Ham");
+            else
+                EmailList.setEmail(file.getName(),fileIsSpam,"Spam");
+
     }
 
     /**
@@ -158,6 +158,10 @@ public class WordCounter {
      * that it contains a certain word.  Save the probabilities into corresponding maps
      */
     public void calculateProbability(){
+
+        optimize = new Optimize();
+        optimize.optFreqMap(trainSpamFreq,5);
+
         // calculate and save the probability that a word in the trainHamFreq map appears in a ham file into
         // the probabilitywordInHam map
         Set<String> keys = trainHamFreq.keySet();
@@ -222,36 +226,9 @@ public class WordCounter {
 
         double accuracy = (double)correct/(testHamProb.size()+testSpamProb.size());
 
-        System.out.println(accuracy);
 
         return accuracy;
 
     }
-
-    /**
-     * Prints out all the words and number of times they were seen in the Frequency maps
-     */
-    public void printWordCounts(){
-
-//        System.out.println("Number of ham files: " + numHam);
-//        System.out.println(trainHamFreq);
-//        System.out.println(probabilitywordInHam);
-//
-//        System.out.println("Number of spam files: " +numSpam);
-//        System.out.println(trainSpamFreq);
-//        System.out.println(probabilitywordInSpam);
-
-
-        // print all the words and probability in the map probabilityFileisSpam (Pr(𝑆|𝑊𝑖)) line by line
-        Set<String> keys = testHamProb.keySet();
-        Iterator<String> keyIterator = keys.iterator();
-        while (keyIterator.hasNext()) {
-            String key = keyIterator.next();
-            double count = testHamProb.get(key);
-
-            System.out.println(key + " " + count);
-        }
-    }
-
 
 }
