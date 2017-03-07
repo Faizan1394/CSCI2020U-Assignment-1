@@ -32,7 +32,7 @@ public class Main extends Application {
         word.calculateProbability();
         word.traverseDirectory(testPath);
 
-        //word.printWordCounts();
+        word.printWordCounts();
         word.calculateAccuracy();
 
         primaryStage.setScene(new Scene(root, 750, 650));
