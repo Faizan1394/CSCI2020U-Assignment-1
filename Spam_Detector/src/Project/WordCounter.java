@@ -10,11 +10,14 @@ import java.util.concurrent.CountedCompleter;
 
 public class WordCounter {
 
+    private Optimize optimize;
+
     //#of files
     private int numHam;
     private int numSpam;
     private int numTestHam =0;
     private int numTestSpam =0;
+
 
     // maps to hold the ham and spam word frequency when training
     private Map<String,Integer> trainHamFreq;
@@ -33,6 +36,7 @@ public class WordCounter {
     private boolean calculated = false;
 
     public WordCounter() {
+        optimize = new Optimize();
         trainHamFreq = new TreeMap<>();
         trainSpamFreq = new TreeMap<>();
 
@@ -88,6 +92,10 @@ public class WordCounter {
                     }
                 }
             }else if(!calculated){
+               // System.out.println(trainHamFreq);
+              //  trainHamFreq = optimize.optFreqMap(trainHamFreq,2);
+               // System.out.println(trainHamFreq);
+                trainSpamFreq = optimize.optFreqMap(trainSpamFreq,4);
                 calculateProbability();
                 calculated = true;
             } else if(file.getAbsolutePath().contains("test/ham")) {
@@ -155,8 +163,6 @@ public class WordCounter {
      * that it contains a certain word.  Save the probabilities into corresponding maps
      */
     public void calculateProbability(){
-        System.out.println(numHam);
-        System.out.println(numSpam);
         // calculate and save the probability that a word in the trainHamFreq map appears in a ham file into
         // the probabilitywordInHam map
         Set<String> keys = trainHamFreq.keySet();
@@ -214,7 +220,7 @@ public class WordCounter {
         while (keyIterator.hasNext()) {
             String key = keyIterator.next();
             double count = testSpamProb.get(key);
-            if(count > 0.5){
+            if(count >= 0.5){
                 correct++;
             }
         }

@@ -17,13 +17,13 @@ public class Optimize {
      * @param lessThen keys with values bellow this number will be removed.
      * @return the updated map
      */
-    public TreeMap optFreqMap(TreeMap<String,Integer> map, int lessThen){
+    public Map<String,Integer> optFreqMap(Map<String,Integer> map, int lessThen){
         Set<String> keys = map.keySet();
         Iterator<String> keyIterator = keys.iterator();
         while (keyIterator.hasNext()) {
             String key = keyIterator.next();
             if(map.get(key) < lessThen)
-                map.remove(key);
+                keyIterator.remove();
         }
 
         return map;
