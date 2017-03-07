@@ -236,15 +236,15 @@ public class WordCounter {
     /**
      * Prints out all the words and number of times they were seen in the Frequency maps
      */
-    public void printWordCounts(){
+    public void printWordCounts() {
 
-//        System.out.println("Number of ham files: " + numHam);
-//        System.out.println(trainHamFreq);
-//        System.out.println(probabilitywordInHam);
-//
-//        System.out.println("Number of spam files: " +numSpam);
-//        System.out.println(trainSpamFreq);
-//        System.out.println(probabilitywordInSpam);
+        System.out.println("Number of ham files: " + numHam);
+        System.out.println(trainHamFreq);
+        System.out.println(probabilitywordInHam);
+
+        System.out.println("Number of spam files: " +numSpam);
+        System.out.println(trainSpamFreq);
+        System.out.println(probabilitywordInSpam);
 
 
         // print all the words and probability in the map probabilityFileisSpam (Pr(𝑆|𝑊𝑖)) line by line
