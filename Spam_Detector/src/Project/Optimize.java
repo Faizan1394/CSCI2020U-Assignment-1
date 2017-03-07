@@ -10,6 +10,7 @@ import java.util.TreeMap;
  */
 public class Optimize {
 
+    private String [] common_words = {"the","a","some","is","be", "to","of","and","in","that","have","i"};
     /**
      * Removes all keys and values from a TreeMap which occur less then a certain amount of times
      * @param map The TreeMap containing keys of type string and values of type Integer
