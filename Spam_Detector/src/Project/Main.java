@@ -24,8 +24,13 @@ public class Main extends Application {
         // make an instance of the WordCounter class
         WordCounter word = new WordCounter();
         // call the processFile function in WordCounter class and send it the file containing all the data
-        word.processFile(mainDirectory);
-        //word.calculateProbability();
+
+        File trainPath = new File(mainDirectory+"/train");
+        File testPath = new File(mainDirectory+"/test");
+        word.traverseDirectory(trainPath);
+        word.calculateProbability();
+        word.traverseDirectory(testPath);
+
         //word.printWordCounts();
         word.calculateAccuracy();
 

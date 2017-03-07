@@ -51,23 +51,26 @@ public class WordCounter {
         numSpam = 0;
     }
 
+    public void traverseDirectory(File file)throws IOException{
+        //if the file is a directory
+        if (file.isDirectory()) {
+            // for directories, recursively call
+            File[] filesInDir = file.listFiles();
+            for (int i = 0; i < filesInDir.length; i++) {
+                traverseDirectory(filesInDir[i]);
+            }
+        }else{
+            processFileTrain(file);
+        }
+    }
 
     /**
      *  Goes through all the folders and files in the directory and save all word counts into appropriate Maps
      * @param file The directory to go through
      * @throws IOException
      */
-    public void processFile(File file) throws IOException {
+    public void processFileTrain(File file) throws IOException {
 
-        //if the file is a directory
-        if (file.isDirectory()) {
-            // for directories, recursively call
-            File[] filesInDir = file.listFiles();
-            for (int i = 0; i < filesInDir.length; i++) {
-                processFile(filesInDir[i]);
-            }
-        }
-        else {
             Scanner scanner = new Scanner(file);
             // if the current file is in the training ham folder
             if(file.getAbsolutePath().contains("train/ham")) {
@@ -91,14 +94,7 @@ public class WordCounter {
                         countWord(word,trainSpamFreq);
                     }
                 }
-            }else if(!calculated){
-               // System.out.println(trainHamFreq);
-              //  trainHamFreq = optimize.optFreqMap(trainHamFreq,2);
-               // System.out.println(trainHamFreq);
-                trainSpamFreq = optimize.optFreqMap(trainSpamFreq,4);
-                calculateProbability();
-                calculated = true;
-            } else if(file.getAbsolutePath().contains("test/ham")) {
+            }else if(file.getAbsolutePath().contains("test/ham")) {
                 numTestHam++;
                 double probWordSpam = 0;
                 while (scanner.hasNext()) {
@@ -124,7 +120,6 @@ public class WordCounter {
                 testSpamProb.put(file.getName(),fileIsSpam);
                 EmailList.setEmail(file.getName(),fileIsSpam,"Spam");
             }
-        }
     }
 
     /**
