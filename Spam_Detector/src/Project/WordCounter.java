@@ -15,8 +15,6 @@ public class WordCounter {
     //#of files
     private int numHam;
     private int numSpam;
-    private int numTestHam =0;
-    private int numTestSpam =0;
 
 
     // maps to hold the ham and spam word frequency when training
@@ -99,7 +97,6 @@ public class WordCounter {
                 calculateProbability();
                 calculated = true;
             } else if(file.getAbsolutePath().contains("test/ham")) {
-                numTestHam++;
                 double probWordSpam = 0;
                 while (scanner.hasNext()) {
                     String word = scanner.next();
@@ -112,7 +109,6 @@ public class WordCounter {
                 EmailList.setEmail(file.getName(),fileIsSpam,"Ham");
             }
             else if (file.getAbsolutePath().contains("test/spam")) {
-                numTestSpam++;
                 double probWordSpam = 0;
                 while (scanner.hasNext()) {
                     String word = scanner.next();
@@ -247,15 +243,15 @@ public class WordCounter {
         System.out.println(probabilitywordInSpam);
 
 
-        // print all the words and probability in the map probabilityFileisSpam (Pr(𝑆|𝑊𝑖)) line by line
-        Set<String> keys = testHamProb.keySet();
-        Iterator<String> keyIterator = keys.iterator();
-        while (keyIterator.hasNext()) {
-            String key = keyIterator.next();
-            double count = testHamProb.get(key);
-
-            System.out.println(key + " " + count);
-        }
+//        // print all the words and probability in the map probabilityFileisSpam (Pr(𝑆|𝑊𝑖)) line by line
+//        Set<String> keys = testHamProb.keySet();
+//        Iterator<String> keyIterator = keys.iterator();
+//        while (keyIterator.hasNext()) {
+//            String key = keyIterator.next();
+//            double count = testHamProb.get(key);
+//
+//            System.out.println(key + " " + count);
+//        }
     }
 
 
