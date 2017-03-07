@@ -81,6 +81,7 @@ public class WordCounter {
              // if the current file is in the training spam folder
             }
             else if(file.getAbsolutePath().contains("train/spam")) {
+                System.out.println("train/spam");
                 numSpam++;
                 while (scanner.hasNext()) {
                     String word = scanner.next().toLowerCase();
@@ -90,6 +91,7 @@ public class WordCounter {
                     }
                 }
             }else if(!calculated){
+                System.out.println("Calculate");
                // System.out.println(trainHamFreq);
               //  trainHamFreq = optimize.optFreqMap(trainHamFreq,2);
                // System.out.println(trainHamFreq);
@@ -97,6 +99,7 @@ public class WordCounter {
                 calculateProbability();
                 calculated = true;
             } else if(file.getAbsolutePath().contains("test/ham")) {
+                System.out.println("test/ham");
                 double probWordSpam = 0;
                 while (scanner.hasNext()) {
                     String word = scanner.next();
