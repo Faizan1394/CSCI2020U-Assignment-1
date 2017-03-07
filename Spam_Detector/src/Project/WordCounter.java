@@ -60,8 +60,10 @@ public class WordCounter {
             }
         }
         else {
-            if(file.getAbsolutePath().contains("tain"))
+            if(file.getAbsolutePath().contains("train"))
                 processFileTrain(file);
+            else
+                processFileTest(file);
         }
     }
 
@@ -95,7 +97,12 @@ public class WordCounter {
                     countWord(word,trainSpamFreq);
                 }
             }
-        }else if(file.getAbsolutePath().contains("test/ham")) {
+        }
+    }
+
+    public void processFileTest(File file) throws IOException {
+        Scanner scanner = new Scanner(file);
+        if(file.getAbsolutePath().contains("test/ham")) {
             numTestHam++;
             double probWordSpam = 0;
             while (scanner.hasNext()) {
