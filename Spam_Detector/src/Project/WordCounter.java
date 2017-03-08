@@ -29,8 +29,6 @@ public class WordCounter {
     private Map<String,Double> probabilitywordInSpam;
     private Map<String,Double> probabilitywordInHam;
 
-    private boolean calculated = false;
-
     public WordCounter() {
         trainHamFreq = new TreeMap<>();
         trainSpamFreq = new TreeMap<>();
@@ -190,7 +188,6 @@ public class WordCounter {
             probabilitywordInSpam.put(key,(double)count/numSpam);
         }
 
-
         // calculate and save the probability that a file is spam given that it contains a word in a spam file
         keys = probabilitywordInSpam.keySet();
         keyIterator = keys.iterator();
@@ -201,8 +198,6 @@ public class WordCounter {
             else
                 probabilityFileisSpam.put(key,1.0);
         }
-
-
     }
 
 
@@ -241,8 +236,6 @@ public class WordCounter {
         }
 
         double accuracy = (double)correct/(testHamProb.size()+testSpamProb.size());
-        System.out.println(correct+"  "+testHamProb.size()+" "+testSpamProb.size());
-
         return accuracy;
     }
 
@@ -275,7 +268,6 @@ public class WordCounter {
                 truePos++;
             }
         }
-        System.out.println(truePos+"  "+falsePos);
         precision = (double)truePos / (falsePos+truePos);
         return precision;
     }

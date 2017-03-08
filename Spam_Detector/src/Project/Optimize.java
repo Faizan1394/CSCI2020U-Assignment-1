@@ -6,12 +6,13 @@ import java.util.Set;
 import java.util.TreeMap;
 
 /**
- * Created by faizan on 05/03/17.
+ * Created by miral on 05/03/17.
+ * Class adds a special feature to the main functionality of the program.
+ * This feature removes words in a given map that appear less than a number of times
  */
 public class Optimize {
 
-    private String [] common_words = {"the","a","some","is","be", "to","of","and","in","that","have","i"};
-    /**
+     /**
      * Removes all keys and values from a TreeMap which occur less then a certain amount of times
      * @param map The TreeMap containing keys of type string and values of type Integer
      *            that you want to remove the values from

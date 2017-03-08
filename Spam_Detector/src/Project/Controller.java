@@ -13,6 +13,8 @@ import java.util.ResourceBundle;
 
 /**
  * Created by miral on 05/03/17.
+ *
+ * Controller class takes care of the user interface design
  */
 public class Controller implements Initializable{
 
@@ -29,9 +31,9 @@ public class Controller implements Initializable{
 
         ObservableList emails = EmailList.getEmails();
 
-        file_column.setCellValueFactory(new PropertyValueFactory<TestFile, String>("Filename"));
-        actual_class.setCellValueFactory(new PropertyValueFactory<TestFile, String>("ActualClass"));
-        spam_prob.setCellValueFactory(new PropertyValueFactory<TestFile, String>("SpamProbRounded"));
+        file_column.setCellValueFactory(new PropertyValueFactory<>("Filename"));
+        actual_class.setCellValueFactory(new PropertyValueFactory<>("ActualClass"));
+        spam_prob.setCellValueFactory(new PropertyValueFactory<>("SpamProbRounded"));
         accuracy_field.setText("Accuracy");
         precision_field.setText("Precision");
         table.setItems(emails);

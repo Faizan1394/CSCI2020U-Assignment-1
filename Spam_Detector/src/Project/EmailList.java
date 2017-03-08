@@ -2,17 +2,12 @@ package Project;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.TableView;
-
-import javax.swing.text.TabableView;
-import java.io.File;
-import java.io.IOException;
-import java.util.Map;
-import java.util.Scanner;
 
 /**
  * Created by miral on 19/02/17.
+ * Used to add values to an ObservableList and returns that ObservableList
  */
+
 public class EmailList {
 
     private static ObservableList<TestFile> emails = FXCollections.observableArrayList();

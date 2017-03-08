@@ -1,7 +1,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -14,11 +13,11 @@
                 </TableColumn>
 
 
-                <TableColumn fx:id="actual_class" editable="false" text="Actual Class" prefWidth="150">
+                <TableColumn fx:id="actual_class" text="Actual Class" prefWidth="150">
                 </TableColumn>
 
 
-                <TableColumn fx:id="spam_prob" editable="false" text="Spam Probability" prefWidth="200">
+                <TableColumn fx:id="spam_prob" text="Spam Probability" prefWidth="200">
                 </TableColumn>
             </columns>
         </TableView>
@@ -31,10 +30,10 @@
         </padding>
             <children>
                 <Label text="Accuracy: " GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-                <TextField fx:id="accuracy_field" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <TextField fx:id="accuracy_field" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
                 <Label text="Precision: " GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                <TextField fx:id="precision_field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="precision_field" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
             </children>
         </GridPane>

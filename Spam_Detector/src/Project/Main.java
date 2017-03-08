@@ -7,7 +7,9 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
-
+/**
+ * Created by miral on 19/02/17.
+ */
 public class Main extends Application {
 
 
@@ -36,9 +38,6 @@ public class Main extends Application {
         word.calculateProbability();
         word.traverseDirectory(testPath);
 
-
-        System.out.println(word.calculateAccuracy());
-        System.out.println(word.calculatePrecision());
         controller.setAccuracy_field(Double.toString(word.calculateAccuracy()));
         controller.setPrecision_field(Double.toString(word.calculatePrecision()));
 
