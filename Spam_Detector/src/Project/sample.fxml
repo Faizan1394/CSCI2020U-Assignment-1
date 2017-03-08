@@ -14,11 +14,11 @@
                 </TableColumn>
 
 
-                <TableColumn fx:id="actual_class" text="Actual Class" prefWidth="150">
+                <TableColumn fx:id="actual_class" editable="false" text="Actual Class" prefWidth="150">
                 </TableColumn>
 
 
-                <TableColumn fx:id="spam_prob" text="Spam Probability" prefWidth="200">
+                <TableColumn fx:id="spam_prob" editable="false" text="Spam Probability" prefWidth="200">
                 </TableColumn>
             </columns>
         </TableView>

@@ -220,12 +220,46 @@ public class WordCounter {
         }
 
         double accuracy = (double)correct/(testHamProb.size()+testSpamProb.size());
+        System.out.println(correct+"  "+testHamProb.size()+" "+testSpamProb.size());
 
-
-        System.out.println(accuracy);
         return accuracy;
-
     }
+
+    public double calculatePrecision(){
+        double precision;
+        int truePos = 0;
+        int falsePos = 0;
+
+        Set<String> keys = testHamProb.keySet();
+        Iterator<String> keyIterator = keys.iterator();
+        while (keyIterator.hasNext()) {
+            String key = keyIterator.next();
+            double count = testHamProb.get(key);
+            if(count < 0.5){
+                truePos++;
+            }
+            else {
+                falsePos++;
+            }
+        }
+
+        keys = testSpamProb.keySet();
+        keyIterator = keys.iterator();
+        while (keyIterator.hasNext()) {
+            String key = keyIterator.next();
+            double count = testSpamProb.get(key);
+            if(count >= 0.5){
+                truePos++;
+            }
+            else {
+                falsePos++;
+            }
+        }
+        System.out.println(truePos+"  "+falsePos);
+        precision = (double)truePos / (falsePos+truePos);
+        return precision;
+    }
+
 
     /**
      * Prints out all the words and number of times they were seen in the Frequency maps

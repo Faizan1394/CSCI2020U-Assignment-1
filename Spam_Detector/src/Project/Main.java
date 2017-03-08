@@ -33,7 +33,9 @@ public class Main extends Application {
         word.traverseDirectory(testPath);
 
         //  word.printWordCounts();
-        word.calculateAccuracy();
+        System.out.println(word.calculateAccuracy());
+        System.out.println(word.calculatePrecision());
+
 
         primaryStage.setScene(new Scene(root, 750, 650));
         primaryStage.setResizable(false);

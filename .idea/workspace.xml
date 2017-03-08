@@ -4,8 +4,8 @@
     <list default="true" id="d60039b2-7c15-42ac-bcba-37a5828d5acb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Spam_Detector/src/Project/Main.java" afterPath="$PROJECT_DIR$/Spam_Detector/src/Project/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Spam_Detector/src/Project/Optimize.java" afterPath="$PROJECT_DIR$/Spam_Detector/src/Project/Optimize.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Spam_Detector/src/Project/WordCounter.java" afterPath="$PROJECT_DIR$/Spam_Detector/src/Project/WordCounter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Spam_Detector/src/Project/sample.fxml" afterPath="$PROJECT_DIR$/Spam_Detector/src/Project/sample.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,8 +24,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Spam_Detector/src/Project/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="28" column="58" lean-forward="true" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
+            <state relative-caret-position="-197">
+              <caret line="20" column="56" lean-forward="false" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -36,22 +36,14 @@
       <file leaf-file-name="WordCounter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Spam_Detector/src/Project/WordCounter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1314">
-              <caret line="99" column="44" lean-forward="false" selection-start-line="99" selection-start-column="44" selection-end-line="99" selection-end-column="44" />
+            <state relative-caret-position="149">
+              <caret line="221" column="83" lean-forward="false" selection-start-line="221" selection-start-column="83" selection-end-line="221" selection-end-column="83" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#isWord#0;class#WordCounter#0" expanded="false" />
+                <element signature="docComment;method#printWordCounts#0;class#WordCounter#0" expanded="false" />
+                <element signature="method#printWordCounts#0;class#WordCounter#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Optimize.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Spam_Detector/src/Project/Optimize.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="31" column="5" lean-forward="false" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -89,14 +81,14 @@
         <option value="$PROJECT_DIR$/Spam_Detector/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/Spam_Detector/src/Project/TestFile.java" />
         <option value="$PROJECT_DIR$/Spam_Detector/src/Project/EmailList.java" />
-        <option value="$PROJECT_DIR$/Spam_Detector/src/Project/sample.fxml" />
         <option value="$PROJECT_DIR$/Spam_Detector/src/Project/Controller.java" />
         <option value="$PROJECT_DIR$/Spam_Detector/data/test/ham/1.1" />
         <option value="$PROJECT_DIR$/Spam_Detector/data/test/spam/1.2" />
         <option value="$PROJECT_DIR$/Spam_Detector/data/train/ham/1" />
         <option value="$PROJECT_DIR$/Spam_Detector/data/train/spam/2" />
-        <option value="$PROJECT_DIR$/Spam_Detector/src/Project/Main.java" />
         <option value="$PROJECT_DIR$/Spam_Detector/src/Project/Optimize.java" />
+        <option value="$PROJECT_DIR$/Spam_Detector/src/Project/sample.fxml" />
+        <option value="$PROJECT_DIR$/Spam_Detector/src/Project/Main.java" />
         <option value="$PROJECT_DIR$/Spam_Detector/src/Project/WordCounter.java" />
       </list>
     </option>
@@ -123,7 +115,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
@@ -158,6 +149,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -426,7 +418,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32766616" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32766616" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -493,6 +485,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#isWord#0;class#WordCounter#0" expanded="false" />
+            <element signature="docComment;method#printWordCounts#0;class#WordCounter#0" expanded="false" />
+            <element signature="method#printWordCounts#0;class#WordCounter#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -521,6 +515,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#isWord#0;class#WordCounter#0" expanded="false" />
+            <element signature="docComment;method#printWordCounts#0;class#WordCounter#0" expanded="false" />
+            <element signature="method#printWordCounts#0;class#WordCounter#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -549,6 +545,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#isWord#0;class#WordCounter#0" expanded="false" />
+            <element signature="docComment;method#printWordCounts#0;class#WordCounter#0" expanded="false" />
+            <element signature="method#printWordCounts#0;class#WordCounter#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -603,6 +601,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#isWord#0;class#WordCounter#0" expanded="false" />
+            <element signature="docComment;method#printWordCounts#0;class#WordCounter#0" expanded="false" />
+            <element signature="method#printWordCounts#0;class#WordCounter#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -650,6 +650,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#isWord#0;class#WordCounter#0" expanded="false" />
+            <element signature="docComment;method#printWordCounts#0;class#WordCounter#0" expanded="false" />
+            <element signature="method#printWordCounts#0;class#WordCounter#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -671,6 +673,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#isWord#0;class#WordCounter#0" expanded="false" />
+            <element signature="docComment;method#printWordCounts#0;class#WordCounter#0" expanded="false" />
+            <element signature="method#printWordCounts#0;class#WordCounter#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -690,6 +694,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#isWord#0;class#WordCounter#0" expanded="false" />
+            <element signature="docComment;method#printWordCounts#0;class#WordCounter#0" expanded="false" />
+            <element signature="method#printWordCounts#0;class#WordCounter#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -737,6 +743,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#isWord#0;class#WordCounter#0" expanded="false" />
+            <element signature="docComment;method#printWordCounts#0;class#WordCounter#0" expanded="false" />
+            <element signature="method#printWordCounts#0;class#WordCounter#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -784,6 +792,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#isWord#0;class#WordCounter#0" expanded="false" />
+            <element signature="docComment;method#printWordCounts#0;class#WordCounter#0" expanded="false" />
+            <element signature="method#printWordCounts#0;class#WordCounter#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -795,6 +805,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#isWord#0;class#WordCounter#0" expanded="false" />
+            <element signature="docComment;method#printWordCounts#0;class#WordCounter#0" expanded="false" />
+            <element signature="method#printWordCounts#0;class#WordCounter#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -843,45 +855,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Spam_Detector/data/test/ham/1.1" />
+    <entry file="file://$PROJECT_DIR$/Spam_Detector/data/test/spam/1.2" />
+    <entry file="file://$PROJECT_DIR$/Spam_Detector/data/train/spam/2" />
+    <entry file="file://$PROJECT_DIR$/Spam_Detector/data/train/ham/1" />
     <entry file="file://$PROJECT_DIR$/Spam_Detector/src/Project/sample.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Spam_Detector/data/test/ham/1.1">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="11" lean-forward="false" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Spam_Detector/data/test/spam/1.2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Spam_Detector/data/train/spam/2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Spam_Detector/data/train/ham/1">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="3" lean-forward="true" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
+        <state relative-caret-position="162">
+          <caret line="16" column="65" lean-forward="false" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
           <folding />
         </state>
       </provider>
@@ -896,8 +880,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Spam_Detector/src/Project/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="28" column="58" lean-forward="true" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
+        <state relative-caret-position="-197">
+          <caret line="20" column="56" lean-forward="false" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -906,11 +890,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Spam_Detector/src/Project/WordCounter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1314">
-          <caret line="99" column="44" lean-forward="false" selection-start-line="99" selection-start-column="44" selection-end-line="99" selection-end-column="44" />
+        <state relative-caret-position="149">
+          <caret line="221" column="83" lean-forward="false" selection-start-line="221" selection-start-column="83" selection-end-line="221" selection-end-column="83" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#isWord#0;class#WordCounter#0" expanded="false" />
+            <element signature="docComment;method#printWordCounts#0;class#WordCounter#0" expanded="false" />
+            <element signature="method#printWordCounts#0;class#WordCounter#0" expanded="false" />
           </folding>
         </state>
       </provider>
