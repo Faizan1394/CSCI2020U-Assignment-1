@@ -46,6 +46,12 @@ public class WordCounter {
         numSpam = 0;
     }
 
+    /**
+     * Goes through all the directories and if you get to a file that is
+     * not the directory send it to the processFile function
+     * @param file The directory to go through
+     * @throws IOException
+     */
     public void traverseDirectory(File file)throws IOException{
         //if the file is a directory
         if (file.isDirectory()) {
@@ -64,8 +70,8 @@ public class WordCounter {
     }
 
     /**
-     *  Goes through all the folders and files in the directory and save all word counts into appropriate Maps
-     * @param file The directory to go through
+     * read all the words in the train file and save it into the appropriate map
+     * @param file The file to go through
      * @throws IOException
      */
     public void processFileTrain(File file) throws IOException {
@@ -96,6 +102,12 @@ public class WordCounter {
         }
     }
 
+    /**
+     * read all the words in the test file and save it into the appropriate map, calculate if the file is ham or spam
+     * and display it onto the table
+     * @param file The file to go through
+     * @throws IOException
+     */
     public void processFileTest(File file) throws IOException {
         Scanner scanner = new Scanner(file);
 
@@ -103,6 +115,7 @@ public class WordCounter {
         while (scanner.hasNext()) {
             String word = scanner.next();
             if (isWord(word) && probabilityFileisSpam.containsKey(word))
+                // computes combined probability
                 probWordSpam += calculateSpamProbability(word);
         }
         double fileIsSpam = 1/(1+(Math.pow(Math.E,probWordSpam)));
@@ -192,12 +205,19 @@ public class WordCounter {
 
     }
 
+
     public double calculateSpamProbability(String word) {
         double trainSpamProb = probabilityFileisSpam.get(word);
         return (Math.log(1-trainSpamProb) - Math.log(trainSpamProb));
     }
 
+    /**
+     * Calculate the accuracy
+     * @return the accuracy
+     */
     public double calculateAccuracy(){
+
+        // go through maps containing test ham for the files and calculate the number of correct guesses
         int correct = 0;
         Set<String> keys = testHamProb.keySet();
         Iterator<String> keyIterator = keys.iterator();
@@ -209,6 +229,7 @@ public class WordCounter {
             }
         }
 
+        // go through maps containing test spam for the files and calculate the number of correct guesses
         keys = testSpamProb.keySet();
         keyIterator = keys.iterator();
         while (keyIterator.hasNext()) {
@@ -225,6 +246,11 @@ public class WordCounter {
         return accuracy;
     }
 
+
+    /**
+     * calculate the precision
+     * @return the precision
+     */
     public double calculatePrecision(){
         double precision;
         int truePos = 0;
@@ -235,10 +261,7 @@ public class WordCounter {
         while (keyIterator.hasNext()) {
             String key = keyIterator.next();
             double count = testHamProb.get(key);
-            if(count < 0.5){
-                truePos++;
-            }
-            else {
+            if(count >= 0.5){
                 falsePos++;
             }
         }
@@ -251,40 +274,9 @@ public class WordCounter {
             if(count >= 0.5){
                 truePos++;
             }
-            else {
-                falsePos++;
-            }
         }
         System.out.println(truePos+"  "+falsePos);
         precision = (double)truePos / (falsePos+truePos);
         return precision;
     }
-
-
-    /**
-     * Prints out all the words and number of times they were seen in the Frequency maps
-     */
-    public void printWordCounts(){
-
-        System.out.println("Number of ham files: " + numHam);
-        System.out.println(trainHamFreq);
-        System.out.println(probabilitywordInHam);
-
-        System.out.println("Number of spam files: " +numSpam);
-        System.out.println(trainSpamFreq);
-        System.out.println(probabilitywordInSpam);
-
-
-        // print all the words and probability in the map probabilityFileisSpam (Pr(𝑆|𝑊𝑖)) line by line
-        Set<String> keys = probabilityFileisSpam.keySet();
-        Iterator<String> keyIterator = keys.iterator();
-        while (keyIterator.hasNext()) {
-            String key = keyIterator.next();
-            double count = probabilityFileisSpam.get(key);
-
-            System.out.println(key + " " + count);
-        }
-    }
-
-
 }
