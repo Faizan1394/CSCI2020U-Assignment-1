@@ -109,6 +109,7 @@ public class WordCounter {
     public void processFileTest(File file) throws IOException {
         Scanner scanner = new Scanner(file);
 
+
         double probWordSpam = 0;
         while (scanner.hasNext()) {
             String word = scanner.next();
