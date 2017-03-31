@@ -1,8 +1,8 @@
 # Assignment-1
 #### Authors
-Miral Panchal - 100569725
+Miral Pancha
 
-Muhammad Faizan Ali - 100518916
+Muhammad Faizan Ali
 
 ##### Program Description
 This program is trained using a bunch of emails already classified as spam or ham and then is able to use that training data to predict if a certain email is spam or ham. It then displays how accurately the emails were classified as spam or ham
